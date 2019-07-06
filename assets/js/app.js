@@ -11,3 +11,19 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Grab variables from form fields
+var database = firebase.database();
+
+var empName = $("#empName").val().trim();
+console.log(empName);
+var empRole = $("#empRole").val().trim();
+var monthRate = $("#monthRate").val().trim();
+var startDate = $("#startDate").val().trim();
+
+//push values intot database  
+database.ref().push({
+    employee: empName,
+    role: empRole,
+    rate: monthRate,
+    date: startDate,
+});
