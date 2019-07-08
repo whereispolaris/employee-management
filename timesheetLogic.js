@@ -1,12 +1,11 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyC-cuJuAe1Nl5CSQ9Dxf8J7fxrjMLurrRM",
-    authDomain: "employee-management-aa190.firebaseapp.com",
-    databaseURL: "https://employee-management-aa190.firebaseio.com",
-    projectId: "employee-management-aa190",
-    storageBucket: "",
-    messagingSenderId: "340739215875",
-    appId: "1:340739215875:web:09a4a6133dca6a5f"
+    apiKey: config.apiKey,
+    authDomain: config.authDomain,
+    databaseURL: config.databaseURL,
+    projectId: config.projectId,
+    messagingSenderId: config.messagingSenderId,
+    appId: config.appId
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -17,7 +16,10 @@ console.log(database);
 
 $("#add-employee-btn").on("submit", function (event) {
     event.preventDefault();
-
+    var employeeName = $("#employee-name-input").val().trim();
+    var role = $("#role-input").val().trim();
+    var startDate = $("#start-input").val().trim();
+    var monthlyRate = $("#rate-input").val().trim();
 });
 
 // PSEUDOCODE
