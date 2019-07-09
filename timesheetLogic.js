@@ -43,7 +43,7 @@ database.ref().on("child_added", function (snapshot) {
         + totalBilled + "</td>"
     );
 
-    $("tbody").append(tableRow);
+    $("#current-employees").append(tableRow);
 
 });
 
