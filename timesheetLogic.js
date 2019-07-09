@@ -1,3 +1,6 @@
+var monthsWorked = 10; //Placeholder
+var totalBilled = 100000 // Placeholder
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: config.apiKey,
@@ -27,10 +30,22 @@ $("#add-employee-btn").on("click", function (event) {
         startDate: startDate,
         monthlyRate: monthlyRate
     });
-
 });
 
+database.ref().on("child_added", function (snapshot) {
+    var tableRow = $("<tr>");
+    tableRow.append(
+        "<td>" + snapshot.val().employeeName + "</td><td>"
+        + snapshot.val().role + "</td><td>"
+        + snapshot.val().startDate + "</td><td>"
+        + monthsWorked + "</td><td>"
+        + snapshot.val().monthlyRate + "</td><td>"
+        + totalBilled + "</td>"
+    );
 
+    $("tbody").append(tableRow);
+
+});
 
 // PSEUDOCODE
 // - Create event that adds user information to database (employee-name, role, start-date, monthly-rate) - USE PUSH
